@@ -1,15 +1,17 @@
 {% extends "auctions/layout.html" %}
 
 {% block main %}
+    <main class="categories-main">
 
-    <h2>Category - Listings</h2>
+        <div class="categories-wraper">
+            
+        </div>
+          
+        </ul>
 
-    <ul>
-        {% for listing in listings %}
-            <!-- <li>{{ category }}</li> -->
-            <li><a href="{% url 'listing' listing.title %}">{{ listing.title }}</a></li>
-        {% endfor %}
-    </ul>
+    </main>
+ 
+
 
   
 

@@ -24,7 +24,14 @@
     margin: 40px auto 40px auto;
     background-color: rgb(249, 249, 249);
     padding: 20px;
-    border-radius: 8px;
+    border-radius: 8px;   
+    -webkit-box-shadow: 4px 10px 15px 2px rgba(107, 107, 107, 0.1);
+    box-shadow: 4px 10px 15px 2px rgba(107, 107, 107, 0.1);
+
+}
+
+.item-flex p{
+    margin: 0;
 }
 
 .item-flex > *:not(:last-of-type){
@@ -48,6 +55,10 @@
 .flex-right .view-more{
     width: 20%;
 }
+
+.flex-right h2{
+    color: rgb(90, 151, 212);;
+}
 .flex-data{
     display: flex;
     justify-content: flex-start;
@@ -60,7 +71,8 @@
 .flex-data .status span{
     /* font-weight: bold; */
     font-size: 30px;
-    margin-left: 10px;
+    margin-left: 5px;
+    color: rgb(90, 151, 212);;
 }
 .flex-data > *:not(:last-of-type){
     margin-right: 20px;

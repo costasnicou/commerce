@@ -34,6 +34,7 @@ html,body{
 
 .middlenav-wraper .nav-link {
     color: rgb(47, 47, 47);
+    color: rgb(32, 65, 112);
 }
 
 .middlenav-wraper .nav-link:hover{
@@ -48,11 +49,11 @@ html,body{
 }
 .nav-link{
     text-align: center;
-    color: rgb(239, 239, 239);
+    color: rgb(251, 251, 251);
 }
 
 .nav-link:hover{
-color: rgb(239, 186, 79);
+color: white;
 
 }
 
@@ -60,10 +61,14 @@ color: rgb(239, 186, 79);
      /* float: left !important; */
     /* position: absolute;
     left: 200px; */
-    color: rgb(2, 61, 143);
+    color: rgb(2, 67, 158);
+    color: rgb(57, 91, 137);
     font-size: 35px;
 }
 
+.navbar-brand:hover{
+    color: rgb(32, 65, 112);
+}
 
 /* HEADER------------
 -------------------------------- */
@@ -105,9 +110,5 @@ color: rgb(239, 186, 79);
 
 .foot-link:hover{
     font-weight: bold;
-    color: rgb(239, 186, 79);
-}
-
-.login-form,.register-form{
-    margin-top: 200px;
+    color: white;
 }

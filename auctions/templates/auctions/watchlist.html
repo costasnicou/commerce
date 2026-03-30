@@ -17,8 +17,8 @@
                             <p>{{watchlist_item.listing.description | truncatechars:300}}</p>
                             
                             <div class="flex-data">
-                                <p class="status">Status: <span>{% if watchlist_item.listing.status == 'T'%} Active {% elif watchlist_item.listing.status == 'F' %} Inactive {% endif %}</span></p>
-                                <p class="status">Starting Bid:<span> ${{watchlist_item.listing.starting_price}}</span></p>
+                                <p class="status">Status:<span>{% if watchlist_item.listing.status == 'T'%} Active {% elif watchlist_item.listing.status == 'F' %} Inactive {% endif %}</span></p>
+                                <p class="status">Starting Bid:<span>${{watchlist_item.listing.starting_price}}</span></p>
                                 <p class="status">Latest Bid:<span>{% if watchlist_item.latest_bid == "N/A" %}{{watchlist_item.latest_bid}}{% else %}${{watchlist_item.latest_bid}}{% endif %} </span></p>
                             </div>
                             <a href="{% url 'listing' watchlist_item.listing.title %}" class="view-more">View More</a>

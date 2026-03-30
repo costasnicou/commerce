@@ -17,13 +17,8 @@
     padding: 5px 10px;
     border-radius: 8px;
     color: white;
-    
+    margin: 10px;
 }
-/* .watchlist-add-form{
-    position: absolute;
-    right: 10.5%;
-    top: 1%;
-} */
 
 input[type="submit"].add-watchlist-btn{
     background-color: rgb(77, 77, 77);
@@ -37,14 +32,9 @@ input[type="submit"].add-watchlist-btn:hover{
     background-color: rgb(40, 75, 127);    
 }
 
-.white-link,.white-link:link,.white-linkeygen{
-    /* color: whitesmoke !important; */
-}
+
 .listing{
-    /* background-color: rgb(238, 100, 100); */
-    /* background-color: rgb(60, 60, 60); */
-    /* border: 2px solid orange; */
-    /* color: white; */
+  
     background-color: white;
     padding: 40px 20px;
     border-radius: 20px;
@@ -203,15 +193,31 @@ select#status{
     color: white;
     padding: 5px 10px;
     margin: 10px 0;
-    width: 65%;
+    width: 85%;
+    margin: 10px auto 10px auto;
+    text-align: center;
 }
 
-.error,.errorlist{
+.error{
     list-style: none;
-    background-color: rgb(230, 96, 96);
+    background-color: rgb(222, 109, 109);
+    color: white;
+    padding: 5px 10px;
+    width: 85%;
+    text-align: center;
+    margin: 10px auto 10px auto;
+    
+}
+
+.errorlist{
+    list-style: none;
+    background-color: rgb(218, 126, 126);
     color: white;
     padding: 5px 10px;
     width: 65%;
+    text-align: center;
+    margin: 10px 0;
+    
 }
 
 input[type="submit"].remove-watchlist-btn {
@@ -225,3 +231,11 @@ input[type="submit"].remove-watchlist-btn:hover{
     
 }
 
+.owner-functionality{
+    display: flex;
+    justify-content: flex-start;
+}
+
+.owner-functionality > form:first-child{
+    margin-right: 10px;
+}

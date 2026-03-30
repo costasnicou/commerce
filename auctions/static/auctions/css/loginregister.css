@@ -1,0 +1,33 @@
+.main-loginregister {
+    margin-top: 126px;
+    min-height: 800px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: rgb(249, 249, 249); */
+   
+}
+
+.loginregister-wraper{
+    width: 60%;
+    margin: 0 auto;
+    padding: 100px 50px;
+    background-color: white;
+    border-radius: 20px;
+  
+
+}
+
+.loginregister-wraper h2{
+    text-align: center;
+}
+
+.register-form,.login-form{
+    width: 60%;
+    margin: 40px auto 40px auto;
+    text-align: center;
+}
+
+.form-group{
+    margin: 20px 0;
+}

@@ -19,12 +19,14 @@ hgroup{
 .cover-heading{
     font-size: 4rem;
     line-height: 6rem;
+    text-shadow: 2px 2px 7px rgba(0,0,0,0.61);
 }
 
 
 .cover-subheading{
     font-size: 3rem;
     line-height: 6rem;
+    text-shadow: 2px 2px 7px rgba(0,0,0,0.61);
 }
 
 
@@ -45,6 +47,9 @@ hgroup{
       /* border-left: 10px solid rgb(255, 157, 0);; */
     position: relative;  
     overflow: hidden;
+   
+    -webkit-box-shadow: 4px 10px 15px 2px rgba(107, 107, 107, 0.1);
+    box-shadow: 4px 10px 15px 2px rgba(107, 107, 107, 0.1);
 }
 
 .listing-hm .cat{

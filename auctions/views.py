@@ -139,10 +139,10 @@ def listing(request,listname):
                     highestbiduser=listingbids.order_by('-bid').first().user.username
                     listing.winner = highestbiduser
                     listing.save()
-                    messages.success(request, "You have successfuly closed the listing.")
+                    messages.success(request, f"You have successfuly closed the listing. Highest bidder {listing.winner}")
                     
                 else:
-                    messages.error(request, "The listing has no active bids.")
+                    messages.error(request, "Listing cannot be closed. The listing has no active bids.")
                     # return HttpResponseRedirect(reverse("listing" ,args=[listing.title]))
 
 
@@ -151,14 +151,14 @@ def listing(request,listname):
             if 'add_watchlist' in request.POST:
                 watchlistrecord = WhatchList(user=request.user,listing=listing)
                 watchlistrecord.save()
-                messages.success(request, "You have successfuly added the listing in your watchlist.",extra_tags="watchlist")
+                messages.success(request, "You have successfuly added the listing in your watchlist.")
                 return HttpResponseRedirect(reverse("listing" ,args=[listing.title]))
 
             if 'remove_watchlist' in request.POST:
                 watchlist_item = WhatchList.objects.filter(user=request.user,listing=listing).get()
                 watchlist_item.delete()
 
-                messages.success(request, "You have successfuly deleted the listing from your watchlist.",extra_tags="watchlist")
+                messages.success(request, "You have successfuly deleted the listing from your watchlist.")
                 return HttpResponseRedirect(reverse("listing" ,args=[listing.title]))
 
        
