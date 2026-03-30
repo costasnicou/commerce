@@ -29,7 +29,7 @@ input[type="submit"].add-watchlist-btn{
     background-color: rgb(77, 77, 77);
     background-color: rgb(47, 90, 153);    
     margin-top: 10px;
-    margin: 0;
+    margin: 10px 0;
 }
 
 input[type="submit"].add-watchlist-btn:hover{
@@ -88,6 +88,10 @@ input[type="submit"].add-watchlist-btn:hover{
 }
 .listing-content h2{
     color: rgb(96, 164, 232);;
+}
+
+.bidding-status-p{
+    margin: 10px 0;
 }
 
 .desc{
@@ -152,12 +156,13 @@ input[type="submit"].add-watchlist-btn:hover{
     margin: 0 5px;
 }
 
-input[type="submit"]{
+input[type="submit"] {
     background-color: rgb(96, 164, 232);
     border: none;
     color: white;
     padding: 5px 20px;
     border-radius: 8px;
+    margin: 10px 0;
 }
 
 input[type="submit"]:hover{
@@ -197,6 +202,7 @@ select#status{
     background-color: rgb(2, 164, 124);
     color: white;
     padding: 5px 10px;
+    margin: 10px 0;
     width: 65%;
 }
 
@@ -208,10 +214,10 @@ select#status{
     width: 65%;
 }
 
-input[type="submit"].remove-watchlist-btn{
+input[type="submit"].remove-watchlist-btn {
     background-color: rgb(230, 96, 96);
     margin-top: 10px;
-    margin: 0;
+    margin: 10px 0;
 }
 
 input[type="submit"].remove-watchlist-btn:hover{

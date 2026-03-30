@@ -38,7 +38,7 @@
 
                             {% if user.is_authenticated %}
                                 {% if not listingowner %}
-                                <form action=""class="watchlist-add-form" method="POST">
+                                    <form action=""class="watchlist-add-form" method="POST">
                                     {% csrf_token %}
                                     {% if messages %}
                                         {% for message in messages %}
@@ -112,16 +112,22 @@
                                     {% else %}
 
                                         {% if listingwinner %}
-                                        <p class="success">Congratulations you are the highest bidder</p>
+                                            <p class="success">Congratulations you are the highest bidder</p>
+                                            
+                                        {% else %}
+                                            {% if listing.status == "F" %}
+                                                <p class="bidding-status-p">Bidding is Closed: <a href="{% url 'index' %}"  class="white-link">View Active Listings</a></p>
+                                            {% endif %}
                                         {% endif%}
                                         
                                     {% endif %} 
                                 {% endif %}
                             {% else %}
                                 {% if listing.status == "F" %}
-                                    <p>Bidding is Closed: <a href="{% url 'index' %}"  class="white-link">View Active Listings</a></p>
+                                    <p class="bidding-status-p">Bidding is Closed: <a href="{% url 'index' %}"  class="white-link">View Active Listings</a></p>
+                                    
                                 {% else%}
-                                    <p>Login to start bidding: <a class="white-link" href="{% url 'login' %}">Login</a></p>
+                                    <p class="bidding-status-p">Login to start bidding: <a class="white-link" href="{% url 'login' %}">Login</a></p>
                                 {% endif %}
                             {% endif %}
                         </div>

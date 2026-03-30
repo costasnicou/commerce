@@ -51,11 +51,11 @@ hgroup{
     position: absolute;
     left: 0;
     top: 0;
-    background-color: rgb(96, 164, 232);
+    background-color: rgb(90, 151, 212);
     color: white;
     padding: 5px 10px;
     border-radius: 8px 0 0 0;
-    width: 27%;
+    width: 30%;
     margin: 0;
 }
 
@@ -63,6 +63,7 @@ hgroup{
 
 .listing-hm h3{
     margin-top: 10px;
+    color:rgb(96, 164, 232);
 }
 .listing-hm:hover{
     transform: scale(1.03);
@@ -80,11 +81,13 @@ hgroup{
 .listing-hm p{
     width: 80%;
     margin: 10px auto;
+    font-weight: 300;
    
 }
 
 .listing-hm h4{
     font-size: 18px;
+    font-weight: 300;
 }
 .listing-hm p.price-p{
     margin: 0 auto;
@@ -92,6 +95,7 @@ hgroup{
 .price{
     font-size: 30px;
     transition: all .8s;
+     color:rgb(96, 164, 232);
     
 }
 .mr-5{
@@ -99,7 +103,7 @@ hgroup{
 }
 
 .view-more{
-   background-color: rgb(96, 164, 232);
+    background-color: rgb(90, 151, 212);
     color: white;
     padding: 10px 20px;
     text-decoration: none;

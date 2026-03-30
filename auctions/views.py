@@ -8,7 +8,7 @@ from .forms import BidForm,CommentsForm
 from .models import User
 from .models import ListingCategories, Listings, ListingComments, ListingBids, WhatchList
 from django.contrib import messages
-from django.db.models import Max
+
 # Active Listings index page
 def index(request):
  
@@ -77,7 +77,6 @@ def register(request):
         return HttpResponseRedirect(reverse("index"))
     else:
         return render(request, "auctions/register.html")
-
 
 # Single listing page
 def listing(request,listname):
