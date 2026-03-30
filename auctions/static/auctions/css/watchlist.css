@@ -1,0 +1,68 @@
+.main-watchlist{
+    min-height: 800px;
+    margin-top: 126px;
+}
+
+.watchlist-wraper{
+    padding: 40px;
+    width: 70%;
+    margin: 0 auto;
+}
+.watchlist-wraper h1{
+    text-align: center;
+    
+
+}
+.items-container{
+    margin: 50px 0;
+}
+.item-flex{
+    display: flex;
+    justify-content: center;
+    width: 90%;
+    margin: 0 auto;
+    margin: 40px auto 40px auto;
+    background-color: rgb(249, 249, 249);
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.item-flex > *:not(:last-of-type){
+    margin-right: 30px;
+}
+
+.flex-left{
+    width: 20%;
+    /* justify-self: flex-end; */
+}
+
+.flex-left img{
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+}
+
+.flex-right{
+    width: 80%;
+}
+.flex-right .view-more{
+    width: 20%;
+}
+.flex-data{
+    display: flex;
+    justify-content: flex-start;
+
+}
+.flex-data .status{
+    align-self: center;
+}
+
+.flex-data .status span{
+    /* font-weight: bold; */
+    font-size: 30px;
+    margin-left: 10px;
+}
+.flex-data > *:not(:last-of-type){
+    margin-right: 20px;
+
+}

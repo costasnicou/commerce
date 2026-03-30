@@ -1,0 +1,122 @@
+/* COVER---------------------
+--------------------------------- */
+.cover {
+    background: linear-gradient(45deg, rgba(36, 36, 37, 0.7), rgba(0, 0, 0, 0.6)), url(../imgs/slider1.jpg);
+    height: 55vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 126px;
+}
+hgroup{
+    color: white;
+    text-align: center;
+}
+
+.cover-heading{
+    font-size: 4rem;
+    line-height: 6rem;
+}
+
+
+.cover-subheading{
+    font-size: 3rem;
+    line-height: 6rem;
+}
+
+
+
+
+/* LISTING----------------------
+------------------------------- */
+
+
+
+.listing-hm{
+    flex-basis: 20%;
+    text-align: center;
+    border: 1px solid rgb(56, 92, 157);
+    padding: 20px;
+    border-radius: 20px;
+    transition: all .8s;
+      /* border-left: 10px solid rgb(255, 157, 0);; */
+    position: relative;  
+    overflow: hidden;
+}
+
+.listing-hm .cat{
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: rgb(96, 164, 232);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 8px 0 0 0;
+    width: 27%;
+    margin: 0;
+}
+
+
+
+.listing-hm h3{
+    margin-top: 10px;
+}
+.listing-hm:hover{
+    transform: scale(1.03);
+ 
+}
+
+
+
+.listing-hm img{
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+   
+}
+.listing-hm p{
+    width: 80%;
+    margin: 10px auto;
+   
+}
+
+.listing-hm h4{
+    font-size: 18px;
+}
+.price{
+    font-size: 30px;
+    transition: all .8s;
+    
+}
+.mr-5{
+    margin-right: 20px;
+}
+
+.view-more{
+   background-color: rgb(96, 164, 232);
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 10px;
+    width: 80%;
+    margin: 10px auto;
+    text-align: center;
+    transition: all .8s;
+    border-radius: 5px;
+}
+
+/* .listing-hm:hover .view-more{
+    background-color:  white;
+    color: rgb(76, 130, 185);
+   
+} */
+
+
+
+.listing-hm h3{
+    transition: all .8s;
+}

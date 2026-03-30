@@ -1,0 +1,47 @@
+{% extends "auctions/layout.html" %}
+
+{% block main %}
+    <main class="main-watchlist">
+        <div class="watchlist-wraper">
+             <h1>Watchlist</h1>
+            <div class="items-container">
+                {% for watchlist_item in watchlist_items %}
+                    <div class="item-flex">
+                        <div class="flex-left">
+
+                            <img src="{{watchlist_item.listing.imgurl}}" alt="">
+                        </div>
+
+                        <div class="flex-right">
+                            <h2>{{watchlist_item.listing.title}}</h2>
+                            <p>{{watchlist_item.listing.description | truncatechars:300}}}</p>
+                            
+                            <div class="flex-data">
+                                <p class="status">Status: <span>{% if watchlist_item.listing.status == 'T'%} Active {% elif watchlist_item.listing.status == 'F' %} Inactive {% endif %}</span></p>
+                           
+                            </div>
+                            <a href="{% url 'listing' watchlist_item.listing.title %}" class="view-more">View More</a>
+                           
+
+                        </div>
+
+                    </div>
+
+                    {% empty %}
+
+                    <p style="text-align: center;">No items in your watchlist</p>
+                  
+
+                {% endfor %}
+            </ul>
+
+        </div>
+       
+      
+    </main>
+    
+
+   
+   
+
+{% endblock %}

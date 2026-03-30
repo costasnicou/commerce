@@ -1,6 +1,6 @@
 {% extends "auctions/layout.html" %}
 
-{% block body %}
+{% block main %}
 
     <h2>Register</h2>
 
@@ -8,7 +8,7 @@
         <div>{{ message }}</div>
     {% endif %}
 
-    <form action="{% url 'register' %}" method="post">
+    <form class="register-form" action="{% url 'register' %}" method="post">
         {% csrf_token %}
         <div class="form-group">
             <input class="form-control" autofocus type="text" name="username" placeholder="Username">

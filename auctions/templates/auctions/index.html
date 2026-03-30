@@ -1,7 +1,41 @@
 {% extends "auctions/layout.html" %}
+{% load static %}
+{% block main %}
+    <div class="cover">
+        <hgroup>
+            <h1 class="cover-heading">Find various listings... bid on them</h1>
+            <h2 class="cover-subheading">And make them yours!</h2>
+        </hgroup>
+       
+    </div>
 
-{% block body %}
-    <h2>Active Listings</h2>
+    <main class="main-hm">
+        <div class="main-wraper pt-5 pb-5">
+            <h2 class="text-center">Active Listings</h2>
 
-    TODO
+            <div class="pt-2 d-flex flex-row justify-content-center flex-wrap">
+                {% for activeListing in activeListings %}
+                    <div class="listing-hm mt-5 mr-5">
+                        <p class="cat">{{activeListing.category.name}}</p>
+                        <img src="{{activeListing.imgurl}}" alt="">
+                        <h3>{{activeListing.title}}</h3>
+                        <p>{{activeListing.description | truncatechars:80}}</p>
+                        <h4>{{activeListing.created}} - By {{activeListing.user.username}}</h4>
+                        <p >Starting Price: <span class="price">${{activeListing.starting_price}}</span> </p>
+                        <a href="{% url 'listing' activeListing.title %}" class="view-more">View More</a>
+
+                    </div>
+
+                     
+                {% endfor %}
+              
+            </div>
+
+            <ul>
+               
+            </ul>
+        </div>
+
+    </main>
+ 
 {% endblock %}

@@ -1,0 +1,113 @@
+html,body{
+    margin: 0;
+    padding: 0;
+}
+
+/* HEADER------------
+-------------------------------- */
+.topnav{
+    /* /* height: 20px; */
+    background-color: rgb(47, 76, 130);
+    height: 10px;
+   
+}
+
+.middlenav{
+    height: 60px;
+    background-color: white;
+     /* position: relative; */
+     display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.middlenav-wraper{
+    display: flex;
+     align-items: center;
+     justify-content: space-between;
+     width: 85%;
+}
+
+.middlenav-wraper p{
+    margin: 0;
+}
+
+.middlenav-wraper .nav-link {
+    color: rgb(47, 47, 47);
+}
+
+.middlenav-wraper .nav-link:hover{
+    color:rgb(47, 76, 130)
+}
+
+.bg-primary {
+    --bs-bg-opacity: 1;
+    /* background-color: rgba(var(--bs-primary-rgb), var(--bs-bg-opacity)) !important; */
+    background-color: rgb(63, 101, 173) !important;
+    position: relative;
+}
+.nav-link{
+    text-align: center;
+    color: rgb(239, 239, 239);
+}
+
+.nav-link:hover{
+color: rgb(239, 186, 79);
+
+}
+
+.navbar-brand{
+     /* float: left !important; */
+    /* position: absolute;
+    left: 200px; */
+    color: rgb(2, 61, 143);
+    font-size: 35px;
+}
+
+
+/* HEADER------------
+-------------------------------- */
+
+
+/* GLOBAL----------------
+---------------------- */
+
+.main-wraper{
+    width: 95%;
+    margin: 0 auto;
+}
+
+
+/* GLOBAL----------------
+---------------------- */
+
+.footer{
+    height: 100px;
+  
+    background-color: rgb(0, 45, 107);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.footer p{
+    color: white;
+    text-align: center;
+    margin: 0;
+   
+    /* vertical-align:center; */
+}
+
+.foot-link:link,.foot-link:visited{
+    color: white;
+}
+
+.foot-link:hover{
+    font-weight: bold;
+    color: rgb(239, 186, 79);
+}
+
+.login-form,.register-form{
+    margin-top: 200px;
+}

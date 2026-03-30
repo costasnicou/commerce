@@ -1,0 +1,221 @@
+
+.bg{
+    background-color: rgb(249, 249, 249);
+}
+.main-single-listing{
+    margin-top: 126px;  
+    width: 85%;
+    margin: 126px auto 0 auto;
+    min-height: 800px;
+   
+}
+
+.status-label {
+    position: absolute;
+    right: 2.5%;
+    top: 1%;
+    padding: 5px 10px;
+    border-radius: 8px;
+    color: white;
+    
+}
+/* .watchlist-add-form{
+    position: absolute;
+    right: 10.5%;
+    top: 1%;
+} */
+
+input[type="submit"].add-watchlist-btn{
+    background-color: rgb(77, 77, 77);
+    background-color: rgb(47, 90, 153);    
+    margin-top: 10px;
+    margin: 0;
+}
+
+input[type="submit"].add-watchlist-btn:hover{
+    background-color: rgb(66, 66, 66) ;
+    background-color: rgb(40, 75, 127);    
+}
+
+.white-link,.white-link:link,.white-linkeygen{
+    /* color: whitesmoke !important; */
+}
+.listing{
+    /* background-color: rgb(238, 100, 100); */
+    /* background-color: rgb(60, 60, 60); */
+    /* border: 2px solid orange; */
+    /* color: white; */
+    background-color: white;
+    padding: 40px 20px;
+    border-radius: 20px;
+    position: relative;
+  
+}
+.listing h1{ 
+    text-align: center;
+}
+
+.listing-wrap{
+    display: flex;
+    justify-content: center;
+    /* margin-top: 50px; */
+    width: 90%;
+    margin: 0 auto 0 auto;
+  
+
+}
+
+.listing-wrap > *:not(:last-of-type){
+    margin-right:20px ;
+}
+
+.left-listing{
+    width: 40%;
+    text-align: center;
+}
+
+.left-listing img{
+   width: 400px;
+   height: 400px;
+    /* height:auto */
+    object-fit: contain;
+
+}
+
+.listing-content{
+    width:60%;
+    align-self: center;
+}
+.listing-content h2{
+    color: rgb(96, 164, 232);;
+}
+
+.desc{
+    width: 90%;
+}
+
+.price-flex{
+    display: flex;
+    justify-content: flex-start;
+}
+
+.price-flex p{
+    margin: 0;
+}
+
+.price-flex p:not(:last-of-type){
+    margin-right: 10px;
+}
+.pricing{
+    font-size: 30px;
+    color: rgb(96, 164, 232);
+}
+.meta{
+    display: flex;
+    justify-content: flex-start;
+    background-color: rgb(237, 237, 237);
+    background-color: rgb(249, 249, 249);
+    align-items: center;
+    padding: 20px;
+    /* color: white; */
+    width: max-content;
+    border-radius: 10px;
+}
+
+.meta p{
+    margin: 0;
+    font-weight: bold;
+}
+.meta > *:not(:last-of-type){
+    margin-right: 10px;
+}
+.cat span,.by span{
+    /* background-color: rgb(96, 164, 232);
+    background-color: rgb(67, 67, 67); */
+    /* color: white; */
+    font-weight: 400;
+    /* padding: 5px 10px; */
+    margin-left: 5px;
+    border-radius: 5px;
+}
+
+.form-bid{
+    margin-top: 20px;
+    background-color: rgb(237, 237, 237);
+    background-color: rgb(249, 249, 249);
+    padding: 20px;
+    /* width: max-content; */
+    border-radius: 10px;
+}
+
+.form-bid input{
+    margin: 0 5px;
+}
+
+input[type="submit"]{
+    background-color: rgb(96, 164, 232);
+    border: none;
+    color: white;
+    padding: 5px 20px;
+    border-radius: 8px;
+}
+
+input[type="submit"]:hover{
+      background-color: rgb(80, 135, 190);
+}
+
+select#status{
+    padding: 5px;
+}
+
+
+.comment-area{
+    text-align: center;
+    margin-top: 40px;
+}
+/* comments */
+.form-style{
+    width: 70% !important;
+    height: 150px;
+    border-radius: 10px;
+}
+.existing-comments{
+    margin-top: 25px;
+}
+.comment{
+    padding: 20px;
+    background-color: rgb(237, 237, 237);
+    background-color: rgb(249, 249, 249);
+    width: 70%;
+    border-radius: 10px;
+    margin: 10px;
+    /* color: white; */
+    margin: 15px auto 15px auto;
+}
+
+.success{
+    background-color: rgb(2, 164, 124);
+    color: white;
+    padding: 5px 10px;
+    width: 65%;
+}
+
+.error,.errorlist{
+    list-style: none;
+    background-color: rgb(230, 96, 96);
+    color: white;
+    padding: 5px 10px;
+    width: 65%;
+}
+
+input[type="submit"].remove-watchlist-btn{
+    background-color: rgb(230, 96, 96);
+    margin-top: 10px;
+    margin: 0;
+}
+
+input[type="submit"].remove-watchlist-btn:hover{
+    background-color: rgb(203, 86, 86);
+    
+}
+
