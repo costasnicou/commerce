@@ -92,6 +92,14 @@ def listing(request,listname):
         if request.user.username == listing.winner:
             listingwinner = listing.winner
 
+                
+        if WhatchList.objects.filter(user=request.user,listing=listing).exists():
+            exists = True
+            
+
+        else:
+            exists = False
+
         if request.method == "POST":
             if 'submit_bid' in request.POST:
                 bidForm= BidForm(request.POST)
@@ -150,12 +158,6 @@ def listing(request,listname):
         latest_bid = listingbids.order_by('-bid').first().bid
 
 
-    if WhatchList.objects.filter(user=request.user,listing=listing).exists():
-        exists = True
-        
-
-    else:
-        exists = False
         
 
 
