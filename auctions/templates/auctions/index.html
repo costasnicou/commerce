@@ -21,7 +21,8 @@
                         <h3>{{activeListing.title}}</h3>
                         <p>{{activeListing.description | truncatechars:80}}</p>
                         <h4>{{activeListing.created}} - By {{activeListing.user.username}}</h4>
-                        <p >Starting Price: <span class="price">${{activeListing.starting_price}}</span> </p>
+                        <p class="price-p" >Starting Bid: <span class="price">${{activeListing.starting_price}}</span> </p>
+                        <p class="price-p">Latest Bid: <span class="price">${{activeListing.latest_bid}} </span></p>
                         <a href="{% url 'listing' activeListing.title %}" class="view-more">View More</a>
 
                     </div>

@@ -86,6 +86,9 @@ hgroup{
 .listing-hm h4{
     font-size: 18px;
 }
+.listing-hm p.price-p{
+    margin: 0 auto;
+}
 .price{
     font-size: 30px;
     transition: all .8s;

@@ -13,6 +13,8 @@ class ListingCategories(models.Model):
     def __str__(self):
         return f"Name: {self.name}"
 
+
+
 class Listings(models.Model):
     user = models.ForeignKey(
         settings.AUTH_USER_MODEL,
@@ -31,6 +33,7 @@ class Listings(models.Model):
         related_name="category_listings"
     )
 
+
     class StatusChoices(models.TextChoices):
         ACTIVE = 'T', ('Active')
         INACTIVE ='F', ('Inactive')
@@ -44,24 +47,6 @@ class Listings(models.Model):
     def __str__(self):
         return f"Title: {self.title}"
 
-class ListingComments(models.Model):
-
-    user = models.ForeignKey(
-        settings.AUTH_USER_MODEL,
-        on_delete=models.CASCADE,
-        
-    )
-
-    listing = models.ForeignKey(
-        Listings,
-        on_delete=models.CASCADE,
-        related_name="listing_comments"
-    )
-
-    content = models.TextField(blank=False)
-
-    def __str__(self):
-        return f"Comment: {self.id} by {self.user.username} on listing {self.listing.title}"
 
 class ListingBids(models.Model):
 
@@ -82,6 +67,26 @@ class ListingBids(models.Model):
     def __str__(self):
         return f"Bid: {self.id} by {self.user.username} on listing {self.listing.title}"
 
+class ListingComments(models.Model):
+
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        
+    )
+
+    listing = models.ForeignKey(
+        Listings,
+        on_delete=models.CASCADE,
+        related_name="listing_comments"
+    )
+
+    content = models.TextField(blank=False)
+
+    def __str__(self):
+        return f"Comment: {self.id} by {self.user.username} on listing {self.listing.title}"
+
+
 class WhatchList(models.Model):
     user = models.ForeignKey(
         settings.AUTH_USER_MODEL,
@@ -93,6 +98,7 @@ class WhatchList(models.Model):
         on_delete=models.CASCADE,
         related_name="user_watchlist"
     )
+
 
     def __str__(self):
             return f"{self.user} by {self.listing.title}"

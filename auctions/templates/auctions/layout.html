@@ -49,6 +49,7 @@
                 </div>
               
             </div>
+            
             <nav class="navbar bg-primary  border-body " data-bs-theme="light">
                 <div class="container-fluid justify-content-center">
                   
@@ -60,10 +61,14 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'categories' %}">Categories</a>
                         </li>
-                       
+
+                        {% if user.is_authenticated %}
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'watchlist' %}">Watchlist</a>
                         </li>
+                        {% endif %}
+                       
+                      
                     </ul>
                 </div>
                
