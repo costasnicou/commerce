@@ -1,4 +1,11 @@
 .single-category-main{
-    margin-top: 126px;
-    min-height: 800px;
+   
+    text-align: center;
+}
+
+.go-back{
+    display: inline-block;
+    /* text-align: center; */
+    margin: 40px 0;
+
 }

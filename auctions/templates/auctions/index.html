@@ -1,5 +1,6 @@
 {% extends "auctions/layout.html" %}
 {% load static %}
+{% block title %}Auctions - Active Listings{% endblock %}
 {% block main %}
     <div class="cover">
         <hgroup>
@@ -13,16 +14,24 @@
         <div class="main-wraper pt-5 pb-5">
             <h2 class="text-center">Active Listings</h2>
 
-            <div class="pt-2 d-flex flex-row justify-content-center flex-wrap">
+            <div class="pt-2 pb-2 d-flex flex-row justify-content-center flex-wrap">
                 {% for activeListing in activeListings %}
                     <div class="listing-hm mt-5 mr-5">
                         <p class="cat">{{activeListing.category.name}}</p>
-                        <img src="{{activeListing.imgurl}}" alt="">
+                        <img src="{% if activeListing.imgurl%}{{activeListing.imgurl}} {% else %} https://placehold.co/150x150 {% endif %}"  alt="">
                         <h3>{{activeListing.title}}</h3>
                         <p>{{activeListing.description | truncatechars:80}}</p>
                         <h4>{{activeListing.created}} - By {{activeListing.user.username}}</h4>
                         <p class="price-p" >Starting Bid: <span class="price">${{activeListing.starting_price}}</span> </p>
-                        <p class="price-p">Latest Bid: <span class="price">${{activeListing.latest_bid}} </span></p>
+                        <p class="price-p">Latest Bid: 
+                            <span class="price">
+                                {% if activeListing.latest_bid == "N/A" %}
+                                    {{activeListing.latest_bid}}
+                                {% else %}
+                                    ${{activeListing.latest_bid}}
+                                {% endif %}
+                            </span>
+                        </p>
                         <a href="{% url 'listing' activeListing.title %}" class="view-more">View More</a>
 
                     </div>

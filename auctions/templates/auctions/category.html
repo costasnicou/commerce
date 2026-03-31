@@ -1,32 +1,41 @@
 {% extends "auctions/layout.html" %}
-
+{% block title %}Auctions - {{category.name}}{% endblock %}
 {% block main %}
-    <main class="single-category-main">
+    <main class="main single-category-main">
 
-        <div class="single-category-main-wraper pt-5 pb-5">
-            <h2 style="text-align: center;">{{category.name}}</h2>
+        <div class="single-category-main-wraper pt-5 pb-2">
+            <h1 style="text-align: center;">{{category.name}}</h1>
 
             <div class="pt-2 d-flex flex-row justify-content-center flex-wrap">
                 {% for listing in listings %}
                     <div class="listing-hm mt-5 mr-5">
                         <p class="cat">{{listing.category.name}}</p>
-                        <img src="{{listing.imgurl}}" alt="">
+                        <img src="{% if listing.imgurl %}{{listing.imgurl}}{% else %}https://placehold.co/150x150 {% endif %}" alt="">
                         <h3>{{listing.title}}</h3>
                         <p>{{listing.description | truncatechars:80}}</p>
                         <h4>{{listing.created}} - By {{listing.user.username}}</h4>
                         <p class="price-p" >Starting Bid: <span class="price">${{listing.starting_price}}</span> </p>
-                        <p class="price-p">Latest Bid: <span class="price">${{listing.latest_bid}} </span></p>
+                        <p class="price-p">Latest Bid: 
+                            <span class="price">
+                                {% if listing.latest_bid == "N/A" %}
+                                    {{listing.latest_bid}}
+                                {% else %}
+                                    ${{listing.latest_bid}}
+                                {% endif %}
+                            </span>
+                        </p>
                         <a href="{% url 'listing' listing.title %}" class="view-more">View More</a>
 
                     </div>
 
                     {% empty %}
-                        <p style="text-align: center;">No listings found in {{category.name}} category.</p>
+                        <p style="text-align: center;">No listings found in {{category.name}} category. <a href="{% url 'index' %}">View Active Listings</a></p>
                      
                 {% endfor %}
               
             </div>
             
+            <a href="{% url 'categories' %}" class="go-back">Back to Categories</a>
         </div>
           
         

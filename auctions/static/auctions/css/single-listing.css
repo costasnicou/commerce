@@ -39,6 +39,7 @@ input[type="submit"].add-watchlist-btn:hover{
     padding: 40px 20px;
     border-radius: 20px;
     position: relative;
+    border: 0.1px solid rgb(233, 233, 233);
   
 }
 .listing h1{ 
@@ -107,13 +108,13 @@ input[type="submit"].add-watchlist-btn:hover{
 .meta{
     display: flex;
     justify-content: flex-start;
-    background-color: rgb(237, 237, 237);
     background-color: rgb(249, 249, 249);
     align-items: center;
     padding: 20px;
     /* color: white; */
     width: max-content;
     border-radius: 10px;
+    border: 0.1px solid rgb(233, 233, 233);
 }
 
 .meta p{
@@ -135,26 +136,26 @@ input[type="submit"].add-watchlist-btn:hover{
 
 .form-bid{
     margin-top: 20px;
-    background-color: rgb(237, 237, 237);
     background-color: rgb(249, 249, 249);
     padding: 20px;
     /* width: max-content; */
     border-radius: 10px;
+    border: 0.1px solid rgb(233, 233, 233);
 }
 
 .form-bid input{
     margin: 0 5px;
 }
 
+
 input[type="submit"] {
     background-color: rgb(96, 164, 232);
     border: none;
     color: white;
-    padding: 5px 20px;
+    padding: 10px 20px;
     border-radius: 8px;
     margin: 10px 0;
 }
-
 input[type="submit"]:hover{
       background-color: rgb(80, 135, 190);
 }
@@ -179,34 +180,37 @@ select#status{
 }
 .comment{
     padding: 20px;
-    background-color: rgb(237, 237, 237);
     background-color: rgb(249, 249, 249);
     width: 70%;
     border-radius: 10px;
     margin: 10px;
     /* color: white; */
     margin: 15px auto 15px auto;
+    border: 0.1px solid rgb(233, 233, 233);
 }
 
 .success{
-    background-color: rgb(2, 164, 124);
+    background-color: rgb(63, 177, 149);
     color: white;
     padding: 5px 10px;
     margin: 10px 0;
     width: 85%;
     margin: 10px auto 10px auto;
     text-align: center;
+    border-radius: 5px;
+    border: 2px solid yellow;
 }
 
 .error{
     list-style: none;
-    background-color: rgb(222, 109, 109);
+    background-color: rgb(218, 126, 126);
     color: white;
     padding: 5px 10px;
     width: 85%;
     text-align: center;
     margin: 10px auto 10px auto;
-    
+    border-radius: 5px;
+    border: 2px solid yellow;
 }
 
 .errorlist{
@@ -217,25 +221,30 @@ select#status{
     width: 65%;
     text-align: center;
     margin: 10px 0;
+    border-radius: 5px;
+    border: 2px solid yellow;
     
 }
 
 input[type="submit"].remove-watchlist-btn {
-    background-color: rgb(230, 96, 96);
+    background-color: rgb(218, 126, 126);
     margin-top: 10px;
     margin: 10px 0;
 }
 
 input[type="submit"].remove-watchlist-btn:hover{
-    background-color: rgb(203, 86, 86);
+    background-color: rgb(216, 116, 116);
     
 }
 
-.owner-functionality{
+.owner-functionality,.watchlist-functionality{
     display: flex;
     justify-content: flex-start;
 }
 
-.owner-functionality > form:first-child{
+.owner-functionality > form:first-child,.watchlist-functionality >a.view-more:first-child{
     margin-right: 10px;
+}
+.watchlist-functionality{
+    width:400px
 }

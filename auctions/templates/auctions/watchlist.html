@@ -1,27 +1,49 @@
 {% extends "auctions/layout.html" %}
-
+{% block title %}Auctions - Watchlist{% endblock %}
 {% block main %}
     <main class="main-watchlist">
         <div class="watchlist-wraper">
-             <h1>Watchlist</h1>
+            <h1>Watchlist</h1>
+            {% if messages %}
+                {% for message in messages %}
+                    
+                    {% if message.tags == "success" %}
+                        <p class="success">{{message}}</p>
+                    {% endif %}
+
+                    
+                    {% if message.tags == "error" %}
+                        <p class="error">{{message}}</p>
+                    {% endif %}
+                        
+                {% endfor %}
+            {% endif %}
             <div class="items-container">
                 {% for watchlist_item in watchlist_items %}
                     <div class="item-flex">
                         <div class="flex-left">
 
-                            <img src="{{watchlist_item.listing.imgurl}}" alt="">
+                            <img src="{% if watchlist_item.listing.imgurl %}{{watchlist_item.listing.imgurl}} {% else %} https://placehold.co/150x150 {% endif %}" alt="">
                         </div>
 
                         <div class="flex-right">
                             <h2>{{watchlist_item.listing.title}}</h2>
-                            <p>{{watchlist_item.listing.description | truncatechars:300}}</p>
                             
                             <div class="flex-data">
                                 <p class="status">Status:<span>{% if watchlist_item.listing.status == 'T'%} Active {% elif watchlist_item.listing.status == 'F' %} Inactive {% endif %}</span></p>
                                 <p class="status">Starting Bid:<span>${{watchlist_item.listing.starting_price}}</span></p>
                                 <p class="status">Latest Bid:<span>{% if watchlist_item.latest_bid == "N/A" %}{{watchlist_item.latest_bid}}{% else %}${{watchlist_item.latest_bid}}{% endif %} </span></p>
                             </div>
-                            <a href="{% url 'listing' watchlist_item.listing.title %}" class="view-more">View More</a>
+
+                            <div class="watchlist-functionality">
+                                <a href="{% url 'listing' watchlist_item.listing.title %}" class="view-more">View More</a>
+                                <form  action="{% url 'listing' watchlist_item.listing.title  %}"  method="POST">
+                                    {% csrf_token %}
+                                    <input type="submit" class="remove-watchlist-btn" name="remove_watchlist" value="Remove from Watchlist">
+                                </form>
+
+                            </div>
+                            
                            
 
                         </div>
@@ -30,7 +52,7 @@
 
                     {% empty %}
 
-                    <p style="text-align: center;">No items in your watchlist</p>
+                    <p style="text-align: center;">No items in your watchlist. <a href="{% url 'index'%}">View Active Listings</a></p>
                   
 
                 {% endfor %}

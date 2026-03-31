@@ -1,5 +1,5 @@
 {% extends "auctions/layout.html" %}
-
+{% block title %}Auctions - {{listing.title}}{% endblock %}
 {% block main %}
     <div class="bg">
         <main class="main-single-listing">
@@ -28,11 +28,15 @@
                 <div class="listing">
                     
                   
-                    <p class="status-label" style="{% if listing.status == 'T' %} background-color: rgb(2, 164, 124);{% else %} background-color: rgb(230, 96, 96);{% endif %}"> {% if listing.status == "T"%} Active Listing {% else %} Inactive Listing {% endif %}</p>
+                    <p class="status-label" style="{% if listing.status == 'T' %} 
+                        background-color: rgb(63, 177, 149);;
+                    {% else %} 
+                        background-color: rgb(218, 126, 126);
+                    {% endif %}"> {% if listing.status == "T"%} Active Listing {% else %} Inactive Listing {% endif %}</p>
                     <div class="listing-wrap">
                        
                         <div class="left-listing">
-                            <img src="{{listing.imgurl}}" alt="">
+                            <img src="{% if listing.imgurl %}{{listing.imgurl}} {% else %}https://placehold.co/400x400 {% endif %}" alt="">
                         </div>
                     
 
@@ -61,7 +65,7 @@
 
                                 {% if not listingowner %}
                                     <form action=""class="watchlist-add-form" method="POST">
-                                    {% csrf_token %}
+                                        {% csrf_token %}
                                     
 
                                         {% if exists %}
@@ -103,6 +107,7 @@
                                 {% else %}
                                     {% if listing.status == 'T' %}
                                         <form class="form-bid" action="" method="POST">
+                                          
                                             {% csrf_token %}
                                             {{ bidForm.bid.errors }}
                                             {{bidForm.bid.label}}

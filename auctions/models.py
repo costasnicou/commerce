@@ -11,8 +11,7 @@ class ListingCategories(models.Model):
     imgurl = models.URLField(max_length=500,blank=True)
 
     def __str__(self):
-        return f"Name: {self.name}"
-
+        return f"{self.name}"
 
 
 class Listings(models.Model):

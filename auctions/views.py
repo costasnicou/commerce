@@ -4,7 +4,7 @@ from django.db import IntegrityError
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
-from .forms import BidForm,CommentsForm
+from .forms import BidForm,CommentsForm,AddListingForm
 from .models import User
 from .models import ListingCategories, Listings, ListingComments, ListingBids, WhatchList
 from django.contrib import messages
@@ -18,14 +18,14 @@ def getLatestBid(query):
         if latest_bid is not None:
             qr.latest_bid = latest_bid.bid
         else:
-           qr.latest_bid = "N/A"
+            qr.latest_bid = "N/A"
 
     return query
 
 # Active Listings index page
 def index(request):
  
-    activeListings = Listings.objects.filter(status="T")   
+    activeListings = Listings.objects.filter(status="T").order_by('-created')
     activeListings = getLatestBid(activeListings)
     return render(request, "auctions/index.html",{
         "activeListings":activeListings,
@@ -89,7 +89,7 @@ def listing(request,listname):
     listing = Listings.objects.get(title=listname)
     listingbids = listing.listing_bids.all()
     latest_bid =""
-    comments = listing.listing_comments.all()
+    comments = listing.listing_comments.order_by('-id').all()
     bidForm = BidForm()
     commentForm = CommentsForm()
     listingowner = ""
@@ -157,14 +157,14 @@ def listing(request,listname):
                 watchlistrecord = WhatchList(user=request.user,listing=listing)
                 watchlistrecord.save()
                 messages.success(request, "You have successfuly added the listing in your watchlist.")
-                return HttpResponseRedirect(reverse("listing" ,args=[listing.title]))
+                return HttpResponseRedirect(reverse("watchlist"))
 
             if 'remove_watchlist' in request.POST:
                 watchlist_item = WhatchList.objects.filter(user=request.user,listing=listing).get()
                 watchlist_item.delete()
 
-                messages.success(request, "You have successfuly deleted the listing from your watchlist.")
-                return HttpResponseRedirect(reverse("listing" ,args=[listing.title]))
+                messages.success(request, "You have successfuly removed the listing from your watchlist.")
+                return HttpResponseRedirect(reverse("watchlist" ))
 
        
 
@@ -198,7 +198,7 @@ def category(request,catname):
     categories = ListingCategories.objects.all()
     category = categories.get(name=catname)
 
-    listings = Listings.objects.filter(category=category)  
+    listings = Listings.objects.filter(category=category,status="T")  
     listings = getLatestBid(listings)
 
     return render(request, "auctions/category.html",{
@@ -208,7 +208,7 @@ def category(request,catname):
 
 @login_required
 def watchlist(request):
-    watchlist_items = WhatchList.objects.filter(user=request.user)
+    watchlist_items = WhatchList.objects.filter(user=request.user).order_by('-id')
     
     for watchlist_item in watchlist_items:
         latest_bid = watchlist_item.listing.listing_bids.order_by('-id').first()
@@ -222,5 +222,13 @@ def watchlist(request):
 
     return render(request, "auctions/watchlist.html",{
         "watchlist_items": watchlist_items,
+       
+    })
+
+@login_required
+def add_new(request):
+    form=AddListingForm()
+    return render(request, "auctions/add-new.html",{
+        "form":form,
        
     })

@@ -1,8 +1,4 @@
-.categories-main{
-    margin-top: 126px;
-    min-height: 800px;
 
-}
 .categories-wraper{
     padding: 40px 20px;
     background-color: white;
@@ -11,7 +7,7 @@
     margin: 0 auto;
 
 }
-.categories-wraper h2{
+.categories-wraper h1{
     text-align: center;
 }
 .categories-flex{
@@ -24,7 +20,7 @@
 .categories-flex a{
     text-decoration: none;
   
-    border:  1px  solid rgb(79, 111, 179);;
+    border:  1px  solid rgb(79, 111, 179);
     width: 200px; 
     height: 200px;
     margin: 40px 20px;
@@ -36,7 +32,8 @@
 }
 
 .categories-flex a:hover{
-    background-color: rgb(81, 125, 221);
+    background-color: rgb(75, 115, 202);
+    background-color: rgb(76, 122, 206);
     
 }
 .listing-categories{

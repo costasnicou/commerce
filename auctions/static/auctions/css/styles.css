@@ -76,7 +76,11 @@ color: white;
 
 /* GLOBAL----------------
 ---------------------- */
+.main{
+    margin-top: 126px;
+    min-height: 750px;
 
+}
 .main-wraper{
     width: 95%;
     margin: 0 auto;
@@ -111,4 +115,8 @@ color: white;
 .foot-link:hover{
     font-weight: bold;
     color: white;
+}
+
+h1,h2,h3{
+    font-weight: 300;
 }
