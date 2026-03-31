@@ -9,19 +9,24 @@ from .models import User
 from .models import ListingCategories, Listings, ListingComments, ListingBids, WhatchList
 from django.contrib import messages
 
+
+def getLatestBid(query):
+   
+    for qr in query:
+        latest_bid = qr.listing_bids.order_by('-bid').first()
+       
+        if latest_bid is not None:
+            qr.latest_bid = latest_bid.bid
+        else:
+           qr.latest_bid = "N/A"
+
+    return query
+
 # Active Listings index page
 def index(request):
  
-    activeListings = Listings.objects.filter(status="T")
-    for activeListing in activeListings:
-        latest_bid = activeListing.listing_bids.order_by('-id').first()
-       
-        if latest_bid:
-            activeListing.latest_bid = latest_bid.bid
-        else:
-            activeListing.latest_bid = "N/A"
-    
-
+    activeListings = Listings.objects.filter(status="T")   
+    activeListings = getLatestBid(activeListings)
     return render(request, "auctions/index.html",{
         "activeListings":activeListings,
     })
@@ -192,7 +197,10 @@ def categories(request):
 def category(request,catname):
     categories = ListingCategories.objects.all()
     category = categories.get(name=catname)
-    listings = category.category_listings.all()
+
+    listings = Listings.objects.filter(category=category)  
+    listings = getLatestBid(listings)
+
     return render(request, "auctions/category.html",{
         "category": category,
         "listings": listings,
@@ -201,6 +209,7 @@ def category(request,catname):
 @login_required
 def watchlist(request):
     watchlist_items = WhatchList.objects.filter(user=request.user)
+    
     for watchlist_item in watchlist_items:
         latest_bid = watchlist_item.listing.listing_bids.order_by('-id').first()
         
@@ -208,12 +217,8 @@ def watchlist(request):
             watchlist_item.latest_bid = latest_bid.bid
         else:
             watchlist_item.latest_bid = "N/A"
-
-    # listings = Listings.objects.all()
-    # latest_bid =""
-    # listingbids = listings.listing_bids.all()
-    # if listingbids:
-    #     latest_bid = listingbids.order_by('-bid').first().bid
+    
+    
 
     return render(request, "auctions/watchlist.html",{
         "watchlist_items": watchlist_items,
