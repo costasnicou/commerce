@@ -29,8 +29,10 @@ class Listings(models.Model):
     category = models.ForeignKey(
         ListingCategories,
         on_delete=models.CASCADE,
-        related_name="category_listings"
-    )
+        related_name="category_listings",
+        blank=True,
+        null=True,
+    ) 
 
 
     class StatusChoices(models.TextChoices):

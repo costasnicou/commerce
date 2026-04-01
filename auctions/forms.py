@@ -1,7 +1,7 @@
 from django import forms
 from .models import ListingCategories
 
-listing_categories = ListingCategories.objects.all()
+
 class BidForm(forms.Form):
     bid = forms.DecimalField(label="Place your Bid")
 
@@ -18,28 +18,30 @@ class AddListingForm(forms.Form):
     
     title = forms.CharField(
         max_length=100,
-        widget=forms.TextInput(attrs={'class': 'form-field'})
+        required=True,
+        widget=forms.TextInput(attrs={'class': 'form-control','placeholder':"Provide a listing title"})
     )
     # description
-    description = forms.CharField(
-        label="Add Listing Description",
+    description = forms.CharField(   
         required=True,
-        widget=forms.Textarea(attrs={'class':'form-style'})
+        widget=forms.Textarea(attrs={'class':'form-style form-control', 'placeholder':"Add a Listing Description" })
     )
     # starting price
     starting_bid = forms.DecimalField(
-        label="Your starting Bid",
-        widget=forms.NumberInput(attrs={'class':'form-field'})
+        required=True,
+        widget=forms.NumberInput(attrs={'class':'form-control','placeholder':'Your starting Bid'})
     )
     # image url
-    imgage_url = forms.URLField(
+    image_url = forms.URLField(
         label="Optionally provide an image url",
-        widget=forms.URLInput(attrs={'class': 'form-field'})
+        required=False,
+        widget=forms.URLInput(attrs={'class': 'form-control','placeholder':'Optionally provide an image url'})
     )
     # category
     category = forms.ModelChoiceField(
-        queryset=listing_categories,
-        required=True,  
-        widget=forms.Select(attrs={'class': 'form-field'})
+        queryset=ListingCategories.objects.all(),
+        required=False,
+        empty_label="Optionally provide a category",
+        widget=forms.Select(attrs={'class': 'form-control'})
     )
 

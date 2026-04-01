@@ -227,8 +227,33 @@ def watchlist(request):
 
 @login_required
 def add_new(request):
+    listing_categories = ListingCategories.objects.all()
     form=AddListingForm()
+
+    if request.method == "POST":
+        form=AddListingForm(request.POST)
+        
+        if  form.is_valid():
+            valid_data = form.cleaned_data
+            if valid_data["category"]:
+                valid_data["category"] = valid_data["category"]
+            elif valid_data["category"] is None:
+                categoryother = ListingCategories.objects.get(name="Other")
+                valid_data["category"] = categoryother
+            listing = Listings(
+                user=request.user,
+                title=valid_data["title"],
+                description=valid_data["description"],
+                starting_price=valid_data["starting_bid"],
+                imgurl=valid_data["image_url"],
+                winner="",
+                status="T",
+                category=valid_data["category"]
+            )
+            listing.save()
+            return HttpResponseRedirect(reverse("index"))
     return render(request, "auctions/add-new.html",{
         "form":form,
+        "listing_categories": listing_categories,
        
-    })
+    })  

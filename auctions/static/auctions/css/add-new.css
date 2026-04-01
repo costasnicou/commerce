@@ -1,0 +1,21 @@
+.add-new-wraper{
+    padding: 40px 0;
+    width: 60%;
+    margin: 0 auto;
+}
+
+.add-new-wraper h1{
+    text-align: center;
+}
+.add-new-listing-form{
+    width: 60%;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 40px;
+}
+.add-new-listing-form .form-group label{
+    margin: 10px 0;
+}
+.add-new-listing-form .form-style{
+    width: 100% !important;
+}
