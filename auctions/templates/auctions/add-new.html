@@ -6,6 +6,20 @@
     <main class="main">
         <div class="add-new-wraper">
             <h1>Add New Listing</h1>
+             {% if messages %}
+                {% for message in messages %}
+                    
+                    {% if message.tags == "success" %}
+                        <p class="success">{{message}}</p>
+                    {% endif %}
+
+                    
+                    {% if message.tags == "error" %}
+                        <p class="error">{{message}}</p>
+                    {% endif %}
+                        
+                {% endfor %}
+            {% endif %}
            
              <form action="" class="add-new-listing-form" method="POST">
                 {% csrf_token %}

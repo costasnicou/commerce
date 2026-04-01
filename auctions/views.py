@@ -119,7 +119,7 @@ def listing(request,listname):
                 bidForm= BidForm(request.POST)
                 if  bidForm.is_valid():
                     data_valid = bidForm.cleaned_data
-                    if data_valid["bid"] > listing.starting_price:
+                    if data_valid["bid"] >= listing.starting_price:
                         if not listingbids or data_valid["bid"] > listingbids.order_by('-bid').first().bid:
                             bid =  ListingBids(user=request.user,listing=listing,bid=data_valid["bid"])
                             bid.save()
@@ -128,7 +128,7 @@ def listing(request,listname):
                         else:
                             bidForm.add_error("bid","Error: A bid must be greater than the latest bid.")
                     else:
-                        bidForm.add_error("bid","Error: A bid must be greater than the starting bid.")
+                        bidForm.add_error("bid","Error: A bid must be greater or equal than the starting bid.")
    
             if 'submit_comment' in request.POST:
                 commentForm = CommentsForm(request.POST)
@@ -251,7 +251,8 @@ def add_new(request):
                 category=valid_data["category"]
             )
             listing.save()
-            return HttpResponseRedirect(reverse("index"))
+            messages.success(request, f"You have successfuly created the listing {listing.title}.")
+            return HttpResponseRedirect(reverse("add_new"))
     return render(request, "auctions/add-new.html",{
         "form":form,
         "listing_categories": listing_categories,
